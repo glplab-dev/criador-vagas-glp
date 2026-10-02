@@ -732,6 +732,11 @@
               <ul class="arte-list" id="liveArteRequisitos"></ul>
             </div>
 
+            <div class="arte-section" id="liveArteDiferenciaisSection" style="display:none;">
+              <span class="arte-pill">Diferenciais</span>
+              <ul class="arte-list" id="liveArteDiferenciais"></ul>
+            </div>
+
             <div class="arte-section">
               <span class="arte-pill">Atividades</span>
               <ul class="arte-list" id="liveArteAtividades"></ul>
@@ -740,11 +745,6 @@
             <div class="arte-section">
               <span class="arte-pill">Benefícios</span>
               <ul class="arte-list" id="liveArteBeneficios"></ul>
-            </div>
-
-            <div class="arte-section" id="liveArteDiferenciaisSection" style="display:none;">
-              <span class="arte-pill">Diferenciais</span>
-              <ul class="arte-list" id="liveArteDiferenciais"></ul>
             </div>
 
             <div class="arte-footer-banner">
@@ -862,6 +862,11 @@
               <ul class="arte-list" id="arteRequisitos"></ul>
             </div>
 
+            <div class="arte-section" id="arteDiferenciaisSection" style="display:none;">
+              <span class="arte-pill">Diferenciais</span>
+              <ul class="arte-list" id="arteDiferenciais"></ul>
+            </div>
+
             <div class="arte-section">
               <span class="arte-pill">Atividades</span>
               <ul class="arte-list" id="arteAtividades"></ul>
@@ -870,11 +875,6 @@
             <div class="arte-section">
               <span class="arte-pill">Benefícios</span>
               <ul class="arte-list" id="arteBeneficios"></ul>
-            </div>
-
-            <div class="arte-section" id="arteDiferenciaisSection" style="display:none;">
-              <span class="arte-pill">Diferenciais</span>
-              <ul class="arte-list" id="arteDiferenciais"></ul>
             </div>
 
             <div class="arte-footer-banner">
@@ -1281,12 +1281,12 @@ const ARTE_BG_B64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYIAAAN5CAIAA
       texto += `Sobre a vaga:\n${v.resumo}\n\n`;
     }
     texto += `Atividades e responsabilidades:\n${linhasAtividades}\n\n`;
-    texto += `Requisitos:\n${linhasRequisitos}\n\n`;
-    texto += `Benefícios:\n${linhasBeneficios}\n`;
+    texto += `Requisitos:\n${linhasRequisitos}\n`;
     if(linhas(v.diferenciais).length){
       const linhasDiferenciais = linhas(v.diferenciais).map(a=>`• ${a}`).join('\n');
       texto += `\nDiferenciais:\n${linhasDiferenciais}\n`;
     }
+    texto += `\nBenefícios:\n${linhasBeneficios}\n`;
     if(v.contato || v.contato2){
       texto += `\nInteressados(as), enviar currículo para: ${[v.contato, v.contato2].filter(Boolean).join(' ou ')}\n`;
     }
@@ -1304,11 +1304,11 @@ const ARTE_BG_B64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYIAAAN5CAIAA
     texto += `🕒 ${v.horario || HORARIO_PADRAO}\n`;
     texto += `💰 ${faixaSalarialTexto(v)}\n\n`;
     texto += `O que você vai fazer:\n${linhasAtividades}\n\n`;
-    texto += `O que buscamos:\n${linhasRequisitos}\n\n`;
-    texto += `🎁 Benefícios: ${linhas(v.beneficios).join(', ')}\n`;
+    texto += `O que buscamos:\n${linhasRequisitos}\n`;
     if(linhas(v.diferenciais).length){
       texto += `✨ Diferenciais: ${linhas(v.diferenciais).join(', ')}\n`;
     }
+    texto += `\n🎁 Benefícios: ${linhas(v.beneficios).join(', ')}\n`;
     if(v.contato || v.contato2){
       texto += `\n👉 Candidate-se: ${[v.contato, v.contato2].filter(Boolean).join(' ou ')}\n`;
     }
